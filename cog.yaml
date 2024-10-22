@@ -1,0 +1,15 @@
+build:
+  gpu: true
+  cuda: "12.4"
+  python_version: "3.10"
+  python_packages:
+    - "gradio"
+    - "torch"
+    - "torchvision"
+  run:
+    - git clone https://github.com/genmoai/models /models
+    - cd /models && pip install uv
+    - cd /models && uv venv .venv
+    - cd /models && pip install -e .
+
+predict: "predict.py:Predictor"
